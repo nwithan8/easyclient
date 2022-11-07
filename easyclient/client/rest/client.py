@@ -38,6 +38,20 @@ class RestApiClient(ApiClient):
         """
         return self._request_handler.get_json(url=endpoint, params=params)
 
+    def get_text(self, endpoint: str, params: dict = None) -> str:
+        """
+        Make a GET request to the API
+
+        :param endpoint: URL endpoint
+        :type endpoint: str
+        :param params: Dictionary of parameters to add to url
+        :type params: dict, optional
+        :return: Text from the API response
+        :rtype: str
+        """
+        res: Response = self._request_handler.get(url=endpoint, params=params)
+        return res.text
+
     def get_object(self,
                    endpoint: str,
                    model: type,
@@ -91,6 +105,20 @@ class RestApiClient(ApiClient):
         """
         res = self._request_handler.post(url=endpoint, params=params)
         return _process_blind(res)
+
+    def post_text(self, endpoint: str, params: dict = None) -> str:
+        """
+        Make a POST request to the API
+
+        :param endpoint: URL endpoint
+        :type endpoint: str
+        :param params: Dictionary of parameters to add to url
+        :type params: dict, optional
+        :return: Text from the API response
+        :rtype: str
+        """
+        res: Response = self._request_handler.post(url=endpoint, params=params)
+        return res.text
 
     def post_object(self,
                     endpoint: str,
@@ -146,6 +174,20 @@ class RestApiClient(ApiClient):
         res = self._request_handler.put(url=endpoint, params=params)
         return _process_blind(res)
 
+    def put_text(self, endpoint: str, params: dict = None) -> str:
+        """
+        Make a PUT request to the API
+
+        :param endpoint: URL endpoint
+        :type endpoint: str
+        :param params: Dictionary of parameters to add to url
+        :type params: dict, optional
+        :return: Text from the API response
+        :rtype: str
+        """
+        res: Response = self._request_handler.put(url=endpoint, params=params)
+        return res.text
+
     def put_object(self,
                    endpoint: str,
                    model: type,
@@ -200,6 +242,20 @@ class RestApiClient(ApiClient):
         res = self._request_handler.patch(url=endpoint, params=params)
         return _process_blind(res)
 
+    def patch_text(self, endpoint: str, params: dict = None) -> str:
+        """
+        Make a PATCH request to the API
+
+        :param endpoint: URL endpoint
+        :type endpoint: str
+        :param params: Dictionary of parameters to add to url
+        :type params: dict, optional
+        :return: Text from the API response
+        :rtype: str
+        """
+        res: Response = self._request_handler.patch(url=endpoint, params=params)
+        return res.text
+
     def patch_object(self,
                      endpoint: str,
                      model: type,
@@ -253,6 +309,20 @@ class RestApiClient(ApiClient):
         """
         res = self._request_handler.delete(url=endpoint, params=params)
         return _process_blind(res)
+
+    def delete_text(self, endpoint: str, params: dict = None) -> str:
+        """
+        Make a DELETE request to the API
+
+        :param endpoint: URL endpoint
+        :type endpoint: str
+        :param params: Dictionary of parameters to add to url
+        :type params: dict, optional
+        :return: Text from the API response
+        :rtype: str
+        """
+        res: Response = self._request_handler.delete(url=endpoint, params=params)
+        return res.text
 
     def delete_object(self,
                       endpoint: str,

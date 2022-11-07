@@ -52,7 +52,6 @@ def comma_delimit(items: Iterable) -> str:
 def one_needed(**kwargs) -> bool:
     """
     Check if at least one of the kwargs is not None
-    Logs error message if not.
 
     :param kwargs: Dict of keyword arguments
     :type kwargs: dict
@@ -63,8 +62,6 @@ def one_needed(**kwargs) -> bool:
     for k, v in kwargs.items():
         if v:
             one_used = True
-    if not one_used:
-        raise Exception("At least one of the following parameters is required: {comma_delimit(kwargs.keys())}")
     return one_used
 
 
@@ -86,7 +83,6 @@ def which_used(**kwargs) -> tuple:
 def is_invalid_choice(value: Any, choices: List) -> bool:
     """
     Check if value is one of the possible choices
-    Logs error message if not.
 
     :param value: Value to evaluate
     :type value: object
@@ -98,3 +94,26 @@ def is_invalid_choice(value: Any, choices: List) -> bool:
     if value and value not in choices:
         return True
     return False
+
+
+def in_range(value: Union[int, float], min_value: Union[int, float], max_value: Union[int, float]) -> bool:
+    """
+    Check if value is in the range [min_value, max_value]
+
+    :param value: Value to evaluate
+    :type value: int or float
+    :param min_value: Minimum value
+    :type min_value: int or float
+    :param max_value: Maximum value
+    :type max_value: int or float
+    :return: If value is in range
+    :rtype: bool
+    """
+    if value and (value < min_value or value > max_value):
+        return True
+    return False
+
+
+
+
+
