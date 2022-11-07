@@ -5,7 +5,7 @@ from objectrest import (
     AsyncResponse
 )
 
-from easyclient.base import (
+from easyclient.client.base import (
     ApiClient,
     ApiAuth,
 )

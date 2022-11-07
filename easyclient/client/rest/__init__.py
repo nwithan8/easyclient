@@ -1,4 +1,4 @@
-from easyclient.rest.client import (
+from easyclient.client.rest.client import (
     RestApiClient,
     AsyncRestApiClient,
 )

@@ -1,9 +1,11 @@
-from easyclient.base import (
+import easyclient.parameters as parameters
+import easyclient.utils as utils
+from easyclient.client.base import (
     ApiAuthNone,
     ApiAuthKey,
     ApiAuthOAuth2,
 )
-from easyclient.rest import (
+from easyclient.client.rest import (
     RestApiClient,
     AsyncRestApiClient,
 )
