@@ -1,0 +1,1 @@
+A simple boilerplate for making REST API clients
